@@ -1,0 +1,12 @@
+---
+services:
+  nextcloud:
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
+    container_name: nextcloud
+    restart: unless-stopped
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./data/nextcloud:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
